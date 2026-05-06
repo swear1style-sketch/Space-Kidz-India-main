@@ -2,7 +2,7 @@
 title: "Welcome to the Space Kidz India Blog"
 date: "2026-04-26"
 excerpt: "This is a sample markdown blog post. Add more posts in the blogs folder to see them listed automatically."
-coverImage: "/img/blogs/launch.jpg"
+coverImage: "/img/blogs/students-workshop.jpg"
 ---
 
 Welcome to the official Space Kidz India blog.

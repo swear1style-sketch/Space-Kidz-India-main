@@ -23,20 +23,29 @@ Or use the provided script:
 npm run install:legacy
 ```
 
-### Environment Setup
+### Environment Setup (Optional)
 
-1. Copy the example environment file:
+The app can be deployed to Vercel **without any environment variables** - all features will gracefully disable and show appropriate messages to users.
+
+For full functionality, create a `.env.local` file with:
+
 ```bash
-cp .env.local .env.local
+# Database (optional - forms will show "unavailable" message if missing)
+DATABASE_URL="postgresql://username:password@localhost:5432/spacekidz"
+
+# Supabase (optional - blog uploads will save locally only if missing)
+SUPABASE_URL="https://your-project.supabase.co"
+SUPABASE_SERVICE_ROLE_KEY="your-service-role-key"
+SUPABASE_BLOG_BUCKET="blogs"
+
+# AI (optional - Space GPT will show "unavailable" message if missing)
+GEMINI_API_KEY="your-gemini-api-key"
+
+# Admin (optional - admin dashboard will be disabled if missing)
+ADMIN_PASSWORD="your-admin-password"
 ```
 
-2. Fill in your actual values for:
-   - `DATABASE_URL`: Your PostgreSQL/Neon database URL
-   - `SUPABASE_URL`: Your Supabase project URL
-   - `SUPABASE_SERVICE_ROLE_KEY`: Your Supabase service role key
-   - `SUPABASE_BLOG_BUCKET`: Your Supabase storage bucket name
-   - `GEMINI_API_KEY`: Your Google Gemini API key
-   - `ADMIN_PASSWORD`: Password for admin dashboard access
+**Note:** Missing environment variables will not break the deployment - features simply become unavailable with user-friendly messages.
 
 ### Development
 
@@ -53,7 +62,26 @@ npm run build
 npm start
 ```
 
-## 📁 Project Structure
+## � Deployment
+
+### Vercel (Recommended)
+
+The app is optimized for Vercel deployment and can be deployed **without any environment variables**:
+
+1. Connect your GitHub repository to Vercel
+2. Deploy - the app will build and run with basic functionality
+3. Add environment variables in Vercel dashboard to enable full features
+
+### Features Without Environment Variables
+
+- ✅ **Static pages** - All content pages work
+- ✅ **Basic navigation** - Site structure and routing work
+- ⚠️ **Forms** - Show "currently unavailable" messages
+- ⚠️ **Space GPT** - Shows "currently unavailable" message
+- ⚠️ **Admin dashboard** - Disabled with appropriate message
+- ⚠️ **Blog uploads** - Save locally only (no cloud storage)
+
+## �📁 Project Structure
 
 - `app/`: Next.js 13+ app directory with API routes
 - `components/`: Reusable React components

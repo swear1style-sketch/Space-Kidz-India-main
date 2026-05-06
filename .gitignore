@@ -49,3 +49,4 @@ coverage/
 
 # Misc
 *.pem
+.env.local.backup

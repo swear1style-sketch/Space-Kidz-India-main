@@ -1,7 +1,11 @@
 import { neon } from '@neondatabase/serverless';
 
-if (!process.env.DATABASE_URL) {
-  throw new Error('DATABASE_URL environment variable is not set');
-}
+// Create a mock sql function that returns empty results when DB is not configured
+const createMockSql = () => {
+  return (...args: any[]) => {
+    console.warn('Database not configured - returning empty results');
+    return Promise.resolve([]);
+  };
+};
 
-export const sql = neon(process.env.DATABASE_URL);
+export const sql = process.env.DATABASE_URL ? neon(process.env.DATABASE_URL) : createMockSql();

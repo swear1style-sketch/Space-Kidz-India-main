@@ -36,13 +36,13 @@ If a question does not relate to space, respond with:
 
 export async function POST(req: Request) {
   console.log("🚀 Space GPT API called")
-  
+
   try {
     if (!process.env.GEMINI_API_KEY) {
-      console.error("❌ GEMINI_API_KEY not found in environment")
+      console.warn("⚠️ GEMINI_API_KEY not configured - Space GPT disabled")
       return NextResponse.json(
-        { error: "API key not configured" }, 
-        { status: 500 }
+        { text: "🚀 Space GPT is currently unavailable. Please check back later!" },
+        { status: 200 }
       )
     }
 

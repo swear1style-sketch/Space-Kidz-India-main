@@ -22,6 +22,15 @@ export async function POST(req: Request) {
   console.log("🔥 POST /api/contact HIT");
 
   try {
+    // Check if database is configured
+    if (!process.env.DATABASE_URL) {
+      console.warn("⚠️ DATABASE_URL not configured - contact form disabled");
+      return NextResponse.json(
+        { error: "Contact form is currently unavailable. Please try again later." },
+        { status: 503 }
+      );
+    }
+
     // --- Parse body safely ---
     const body = await req.json();
     console.log("📩 BODY:", body);

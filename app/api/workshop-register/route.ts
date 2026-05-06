@@ -6,6 +6,15 @@ export const dynamic = "force-dynamic";
 
 export async function POST(req: Request) {
   try {
+    // Check if database is configured
+    if (!process.env.DATABASE_URL) {
+      console.warn("⚠️ DATABASE_URL not configured - workshop registration disabled");
+      return NextResponse.json(
+        { error: "Workshop registration is currently unavailable. Please try again later." },
+        { status: 503 }
+      );
+    }
+
     const body = await req.json();
     const { 
       workshopName, 

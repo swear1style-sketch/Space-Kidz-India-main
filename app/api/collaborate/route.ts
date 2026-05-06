@@ -6,6 +6,15 @@ export const dynamic = "force-dynamic";
 
 export async function POST(req: Request) {
   try {
+    // Check if database is configured
+    if (!process.env.DATABASE_URL) {
+      console.warn("⚠️ DATABASE_URL not configured - collaboration form disabled");
+      return NextResponse.json(
+        { error: "Collaboration form is currently unavailable. Please try again later." },
+        { status: 503 }
+      );
+    }
+
     const body = await req.json();
     const { name, email, organization, phone, collaborationType, message } = body;
 

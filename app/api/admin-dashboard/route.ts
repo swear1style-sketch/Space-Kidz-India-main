@@ -52,16 +52,15 @@ export async function POST(req: Request) {
     const body = await req.json();
     const { password } = body;
 
-    // 2. Strict Environment Variable Check
-    // We REMOVED the fallback. If .env is missing, the API intentionally breaks 
-    // rather than letting someone in with a default password.
+    // 2. Environment Variable Check
+    // If ADMIN_PASSWORD is missing, disable admin functionality
     const ADMIN_PASS = process.env.ADMIN_PASSWORD;
 
     if (!ADMIN_PASS) {
-      console.error("❌ SECURITY ERROR: ADMIN_PASSWORD is missing from .env");
+      console.warn("⚠️ ADMIN_PASSWORD not configured - admin features disabled");
       return NextResponse.json(
-        { error: "Server misconfiguration. Contact support." }, 
-        { status: 500 }
+        { error: "Admin features not configured" },
+        { status: 503 }
       );
     }
 

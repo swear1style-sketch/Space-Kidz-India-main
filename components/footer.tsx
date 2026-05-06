@@ -82,7 +82,7 @@ export function Footer() {
                 <div className="flex gap-3">
                   <MapPin className="w-4 h-4 text-[#ff6b35] mt-1 shrink-0" />
                   <address className="not-italic text-white/60 leading-relaxed">
-                    Shambala Facility, Ispahani Centre,
+                    Shambala, Ispahani Centre,
                     <br />
                     123–124, Nungambakkam High Rd,
                     <br />

@@ -48,6 +48,12 @@ export function Header() {
             >
               About
             </Link>
+            <Link
+              href="/#advisor"
+              className="text-sm xl:text-base font-medium text-white/80 hover:text-[#ff6b35] transition-colors"
+            >
+              Advisor
+            </Link>
             {/* <Link
               href="/space-education"
               className={`text-sm xl:text-base font-medium transition-colors ${
@@ -122,6 +128,13 @@ export function Header() {
               onClick={() => setMobileMenuOpen(false)}
             >
               About
+            </Link>
+            <Link
+              href="/#advisor"
+              className="text-base font-medium text-white/80 hover:text-[#ff6b35] transition-colors"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Advisor
             </Link>
             <Link
               href="/space-education"

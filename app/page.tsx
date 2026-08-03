@@ -1,6 +1,7 @@
 import { Header } from "@/components/header"
 import { HeroSection } from "@/components/hero-section"
 import { AboutSection } from "@/components/about-section"
+import { AdvisorSection } from "@/components/advisor-section"
 import { CapabilitiesSection } from "@/components/capabilities-section"
 import { MissionsSection } from "@/components/missions-section"
 import { GallerySection } from "@/components/gallery-section"
@@ -20,6 +21,7 @@ export default function Home() {
       <Header />
       <HeroSection />
       <AboutSection />
+      <AdvisorSection />
       <CapabilitiesSection />
       <TimelineSection />
       <MissionsSection />

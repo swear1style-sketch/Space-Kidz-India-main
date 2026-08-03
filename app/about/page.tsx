@@ -2,6 +2,7 @@ import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { Rocket, Users, Award, Target } from "lucide-react"
 import AchievementsSection from "@/components/counter-stats"
+import { AdvisorSection } from "@/components/advisor-section"
 
 export default function AboutPage() {
   return (
@@ -90,6 +91,9 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+
+      {/* Advisor Section */}
+      <AdvisorSection />
 
       {/* Achievements Section */}
       <section className="py-12 sm:py-20 bg-black">
